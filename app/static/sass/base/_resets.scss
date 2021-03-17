@@ -1,0 +1,28 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}

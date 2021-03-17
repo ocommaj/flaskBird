@@ -1,0 +1,20 @@
+<html>
+  <head>
+    {% if title %}
+    <title>BirdPi Camera - {{ title }}</title>
+    {% else %}
+    <title>BirdPi Camera</title>
+    {% endif %}
+    <link
+      href='https://fonts.googleapis.com/css?family=Acme'
+      rel='stylesheet'
+      type='text/css' />
+    <link
+      href="{{ url_for('static', filename='css/main.scss.css') }}"
+      rel="stylesheet"
+      type="text/css" />
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  <body>
+</html>

@@ -1,0 +1,21 @@
+.cameraViewFrame {
+  width: 656px;
+  height: 488px;
+  margin-top: -8px;
+  margin-left: -8px;
+
+  overflow: hidden;
+  border: none;
+
+  background-color: $gray-80;
+}
+
+.cameraViewFrameWrapper {
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+
+  border-radius: 1rem;
+  border: solid 2px rgba($gray-80, 1);
+  box-shadow: 0 .25rem .5rem rgba($gray-80, .5);
+}

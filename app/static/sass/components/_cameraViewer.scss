@@ -1,0 +1,7 @@
+@import './_cameraLabel';
+@import './_cameraViewFrame';
+
+.cameraViewer {
+  display: flex;
+  flex-direction: column;
+}
