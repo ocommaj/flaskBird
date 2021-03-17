@@ -10,6 +10,6 @@ setup(
     install_requires=['Flask'],
     setup_requires=['libsass >= 0.6.0'],
     sass_manifests={
-        'app': ('static/sass', 'static/css', '/static/css')
+        'flaskBird': ('static/sass', 'static/css', '/static/css')
     }
 )

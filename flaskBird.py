@@ -1,1 +1,1 @@
-from app import app
+from flaskBird import flaskBird

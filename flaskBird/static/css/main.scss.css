@@ -1,0 +1,59 @@
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+html, body, div, span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0; }
+
+.cameraLabel {
+  font-family: 'Acme', sans-serif;
+  color: rgba(15, 98, 254, 0.8);
+  margin-bottom: .5rem; }
+
+.cameraViewFrame {
+  width: 656px;
+  height: 488px;
+  margin-top: -8px;
+  margin-left: -8px;
+  overflow: hidden;
+  border: none;
+  background-color: #393939; }
+
+.cameraViewFrameWrapper {
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: solid 2px #393939;
+  box-shadow: 0 0.25rem 0.5rem rgba(57, 57, 57, 0.5); }
+
+.cameraViewer {
+  display: flex;
+  flex-direction: column; }
+
+body {
+  background-color: #262626;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh; }
+
+/*# sourceMappingURL=main.scss.css.map */

@@ -4,7 +4,8 @@
 <div class="cameraViewer">
   <h1 class="cameraLabel">Feeder No. 1</h1>
   <div class="cameraViewFrameWrapper">
-    <iframe class="cameraViewFrame" src="http://birdpi:8080/?action=stream">
+    <!--iframe class="cameraViewFrame" src="http://birdpi:8080/?action=stream"-->
+    <iframe class="cameraViewFrame" src="{{ url_for('video_feed') }}">
       Feeder Camera 1
     </iframe>
   </div>
