@@ -1,4 +1,4 @@
 import os
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'unguessable-key'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'super-unguessable-key'
