@@ -8,7 +8,8 @@ def index():
 
 def gen(cameraWorker):
     while True:
-        frame = cameraWorker.get_frame()
+        #frame = cameraWorker.get_frame()
+        frame = cameraWorker.analyze_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
