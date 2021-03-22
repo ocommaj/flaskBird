@@ -13,6 +13,10 @@
       href="{{ url_for('static', filename='css/main.scss.css') }}"
       rel="stylesheet"
       type="text/css" />
+    <meta property="og:site_name" content="BirdPi">
+    <meta property="og:title" content="Max Shareable BirdPi">
+    <meta property="og:description" content="Birds being birds.">
+    <meta property="og:image" content="{{ url_for('static_preview') }}">
   </head>
   <body>
     {% block content %}{% endblock %}

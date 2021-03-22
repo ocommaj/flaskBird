@@ -16,6 +16,7 @@ IMAGE_H = 488
 
 class CameraWorker(object):
     def __init__(self):
+        #self.static = cv2.
         self.video = cv2.VideoCapture("http://birdpi:8080/?action=stream")
         self.labels = load_labels()
         self.interpreter = Interpreter(PATH_TO_MODEL)
@@ -28,6 +29,7 @@ class CameraWorker(object):
         ret, frame = self.video.read()
         ret, jpeg = cv2.imencode('.jpg', frame)
 
+        #return jpeg
         return jpeg.tobytes()
 
     def analyze_frame(self):
@@ -36,26 +38,38 @@ class CameraWorker(object):
         #try:
         results = classify_image(self.interpreter, frame)
         label_id, prob = results[0]
-        print("bird: " + self.labels[label_id])
-        print("prob: " + str(prob))
+        if prob > MIN_CONF_THRESHOLD:
+            print("bird: " + self.labels[label_id])
+            print("prob: " + str(prob))
 
         #finally:
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
 
 def set_input_tensor(interpreter, image):
+    input_mean = 127.5
+    input_std = 127.5
     frame = image.copy()
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame_resized = cv2.resize(frame_rgb, (224, 224))
+    input_data = np.expand_dims(frame_resized, axis=0)
 
-    tensor_index = interpreter.get_input_details()[0]['index']
-    input_tensor = interpreter.tensor(tensor_index)()[0]
-    input_tensor[:, :] = frame_resized
+    input_details = interpreter.get_input_details()
+    floating_model = (input_details[0]['dtype'] == np.float32)
+    tensor_index = input_details[0]['index']
+
+    if floating_model:
+        input_data = (np.float32(input_data) - input_mean) / input_std
+    interpreter.set_tensor(input_details[0]['index'],input_data)
+
+    #input_tensor = interpreter.tensor(tensor_index)()[0]
+    #input_tensor[:, :] = frame_resized
 
 def classify_image(interpreter, image, top_k=1):
     set_input_tensor(interpreter, image)
     interpreter.invoke()
     output_details = interpreter.get_output_details()[0]
+
     output = np.squeeze(interpreter.get_tensor(output_details['index']))
 
     if output_details['dtype'] == np.uint8:
